@@ -1,0 +1,9 @@
+example/**
+hf_cache/**
+*.DS_Store
+*__pycache__
+*wandb/*
+*.gz
+**/__pycache__/*
+__pycache__/
+**/__pycache__/**
