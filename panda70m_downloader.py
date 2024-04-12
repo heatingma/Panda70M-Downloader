@@ -8,7 +8,7 @@ def download_video_links(hf_token: str, filename: str, save_dir: str):
     # check save dir
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
-        
+    
     # download
     pull_from_hf(
         hf_token=hf_token,
