@@ -1,8 +1,7 @@
 import os
 import shutil
 import pandas as pd
-from data4co import compress_folder
-from huggingface_api import pull_from_hf
+from vidfetch import compress_folder, pull_from_hf
 
 
 def download_video_links(hf_token: str, filename: str, save_dir: str):
@@ -24,8 +23,12 @@ def download_videos_by_csv(
     save_dir: str, 
     targz_filename: str,
 ):
-    import youtube_dl
-    
+    try:
+        import youtube_dl
+    except:
+        raise ModuleNotFoundError(
+            "youtube_dl missed, please install it by ``vidfetch.package.youtube.youtube_dl_install_helper``"
+        )
     # path/dir
     folder_name = targz_filename.replace(".tar.gz", "")
     download_videos_dir = os.path.join(save_dir, folder_name, "download_raw")    
